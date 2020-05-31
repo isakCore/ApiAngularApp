@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ApiAngularModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'ApiAngular.dbo.EmployeeDetails' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+  <EntityType Name="EmployeeDetails">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="EmailId" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="nchar" MaxLength="10" />
+    <Property Name="Adresse" Type="varchar" MaxLength="50" />
+    <Property Name="PinCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="ApiAngularModelStoreContainer">
+    <EntitySet Name="EmployeeDetails" EntityType="Self.EmployeeDetails" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmployeeDetails].[EmployeeId] AS [EmployeeId], 
+    [EmployeeDetails].[EmployeeName] AS [EmployeeName], 
+    [EmployeeDetails].[DateOfBirth] AS [DateOfBirth], 
+    [EmployeeDetails].[EmailId] AS [EmailId], 
+    [EmployeeDetails].[Gender] AS [Gender], 
+    [EmployeeDetails].[Adresse] AS [Adresse], 
+    [EmployeeDetails].[PinCode] AS [PinCode]
+    FROM [dbo].[EmployeeDetails] AS [EmployeeDetails]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
